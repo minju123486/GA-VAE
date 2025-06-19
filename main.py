@@ -14,7 +14,7 @@ Hyperparameters
 timestamp = utils.readable_timestamp()
 
 parser.add_argument("--batch_size", type=int, default=32)
-parser.add_argument("--n_updates", type=int, default=5000)
+parser.add_argument("--n_updates", type=int, default=30000)
 parser.add_argument("--n_hiddens", type=int, default=128)
 parser.add_argument("--n_residual_hiddens", type=int, default=32)
 parser.add_argument("--n_residual_layers", type=int, default=2)
@@ -32,7 +32,7 @@ parser.add_argument("--filename",  type=str, default=timestamp)
 args = parser.parse_args()
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+args.save = True
 if args.save:
     print('Results will be saved in ./results/vqvae_' + args.filename + '.pth')
 
